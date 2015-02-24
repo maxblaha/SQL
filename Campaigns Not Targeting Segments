@@ -1,10 +1,6 @@
 Select distinct c.eid
 FROM advertisables adv
-JOIN organizations o ON adv.organization_id=o.id
 JOIN campaigns c ON adv.id=c.advertisable_id
-JOIN users ops ON ops.organization_id = o.ops_organization_id
-JOIN users sales ON sales.organization_id = o.sales_organization_id
-JOIN users customers ON customers.organization_id = o.id
 WHERE c.eid IN (select c.eid
 					from campaigns c
 					join adgroups adg on c.id=adg.campaign_id
